@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_CURRENCIES = 'FETCH_CURRENCIES';
 export const FETCH_CURRENCY_DATA = 'FETCH_CURRENCY_DATA';
+export const REMOVE_CURRENCY = 'REMOVE_CURRENCY';
 
 const ROOT_URL = 'https://www.cryptonator.com/api';
 
@@ -20,5 +21,12 @@ export function fetchCurrencyData(code) {
   return {
     type: FETCH_CURRENCY_DATA,
     payload: request
+  }
+}
+
+export function removeCurrency(code) {
+  return {
+    type: REMOVE_CURRENCY,
+    payload: code
   }
 }

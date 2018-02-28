@@ -55,8 +55,13 @@
 }
 
 .crypto-data {
+  text-align: center;
   padding: 10px;
   margin: 10px;
   background: #eee;
   border-radius: 4px;
+}
+
+.change {
+  font-size: 12px;
 }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchCurrencyData } from '../actions';
 import CryptoData from './crypto_data';
 
+const TIME_INTERVAL = 30000;
 
 class SelectedCryptoList extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SelectedCryptoList extends Component {
 
   componentDidMount() {
     this.props.popular.map(c => this.props.fetchCurrencyData(c.code));
-    setInterval(this.updatePrices, 30000);
+    setInterval(this.updatePrices, TIME_INTERVAL);
   }
 
   updatePrices() {
@@ -29,7 +30,6 @@ class SelectedCryptoList extends Component {
   }
 
   render() {
-    console.log("RENDER")
     const ordered = _.sortByOrder(_.values(this.props.selected), ['base']);
     return(
       <div className="dashboard">
