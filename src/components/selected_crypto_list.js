@@ -29,6 +29,12 @@ class SelectedCryptoList extends Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.error !== nextProps.error) {
+      alert(nextProps.error.error);
+    }
+  }
+
   render() {
     const ordered = _.sortByOrder(_.values(this.props.selected), ['base']);
     return(
@@ -44,7 +50,8 @@ class SelectedCryptoList extends Component {
 function mapStateToProps(state) {
   return {
     selected: state.selectedCurrencies,
-    popular: state.popularCurrencies
+    popular: state.popularCurrencies,
+    error: state.error
   }
 }
 

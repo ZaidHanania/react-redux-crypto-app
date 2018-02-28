@@ -47,7 +47,7 @@ class CryptoData extends Component {
           onClick={this.onClose.bind(this)}
           >
           <FontAwesome
-            className="pull-right"
+            className="pull-right close-button"
             name='times' 
             style={{ color: '#444' }}
             />

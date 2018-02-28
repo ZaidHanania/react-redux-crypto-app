@@ -65,3 +65,8 @@
 .change {
   font-size: 12px;
 }
+
+.close-button {
+  margin-top: -5px;
+  margin-right: -3px;
+}
