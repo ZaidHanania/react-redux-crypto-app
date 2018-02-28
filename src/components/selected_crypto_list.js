@@ -7,8 +7,19 @@ import CryptoData from './crypto_data';
 
 
 class SelectedCryptoList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.updatePrices = this.updatePrices.bind(this);
+  }
+
   componentDidMount() {
     this.props.popular.map(c => this.props.fetchCurrencyData(c.code));
+    setInterval(this.updatePrices, 30000);
+  }
+
+  updatePrices() {
+    _.map(this.props.selected, c => this.props.fetchCurrencyData(c.base));
   }
 
   renderCurrencyData(currency) {
@@ -18,10 +29,12 @@ class SelectedCryptoList extends Component {
   }
 
   render() {
+    console.log("RENDER")
+    const ordered = _.sortByOrder(_.values(this.props.selected), ['base']);
     return(
       <div className="dashboard">
         <div className="grid">
-          {_.map(this.props.selected, c => this.renderCurrencyData(c))}
+          {ordered.map(c => this.renderCurrencyData(c))}
         </div>
       </div>
     );

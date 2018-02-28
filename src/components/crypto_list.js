@@ -15,13 +15,16 @@ class CryptoList extends Component {
   }
 
   addCurrency(currency) {
-    this.props.fetchCurrencyData(currency.code);
+    if (!this.props.selected[currency.code]) {
+      this.props.fetchCurrencyData(currency.code);
+    }
   }
 
   renderListItem(currency) {
+    const className = `list-group-item list-hover ${this.props.selected[currency.code] ? 'list-active' : ''}`;
     return(
       <li
-        className="list-group-item list-hover"
+        className={className}
         key={currency.code}
         currency={currency}
         onClick={() => this.addCurrency(currency)}
@@ -48,7 +51,8 @@ class CryptoList extends Component {
 function mapStateToProps(state) {
   return {
     popular: state.popularCurrencies,
-    all: state.allCurrencies
+    all: state.allCurrencies,
+    selected: state.selectedCurrencies
   }
 }
 
