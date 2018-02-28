@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+}
+
+.side-list {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 25%;
+  overflow: scroll;
+  float: left;
+}
+
+.list-hover:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.list-title {
+  background: #ddd !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.dashboard {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  width: 75%;
+  overflow: scroll;
+  float: right;
+}
+
+.grid {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: left;
+  justify-content: center;
+}
+
+.grid .col {
+  width: 30%;
+}
+
+.crypto-data {
+  padding: 10px;
+  margin: 10px;
+  background: #eee;
+  border-radius: 4px;
+}
